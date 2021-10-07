@@ -4,7 +4,7 @@ session_start();
 
 //verificacao
 if (!isset($_SESSION['logado'])) :
-    header('Location: index.php');
+    header('Location: login.php?erro=erro');
 endif;
 
 //dados
@@ -60,7 +60,7 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a href="scripts/logoff.php" class="dropdown-item"> Sair</a></li>
+                    <a href="scripts/logoff.php" class="dropdown-item"> Sair</a>
                 </ul>
             </li>
         </ul>

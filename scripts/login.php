@@ -21,7 +21,6 @@ if (isset($_POST['btn-entrar'])) :
 				session_start();
 				$_SESSION['logado'] = true;
 				$_SESSION['id'] = $dados['id'];
-				$q = $dados;
 				header('location:../index.php');
 			else :
 				header('location:../login.php?erro=erro');
