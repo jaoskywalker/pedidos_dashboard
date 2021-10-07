@@ -34,7 +34,8 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
     <title>Dashboard - WebClients</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous">
+    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -223,7 +224,7 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                         <th>Pedido</th>
                                         <th>Preço</th>
                                         <th>Data</th>
-                                        <th>Previsão</th>
+                                        <th>Opções</th>
                                     </tr>
                                 </thead>
 
@@ -243,7 +244,7 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                         echo "<tr>
                                         <td>" . $dados['client_name'] . "</td>
                                         <td>" . $dados['client_order'] . "</td>
-                                        <td>" . $dados['price'] . "</td>
+                                        <td>R$ " . number_format($dados['price'], 2, ',', '.') . "</td>
                                         <td>N/a</td>
                                         <td>N/a</td>
                                     </tr>"
@@ -268,7 +269,8 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>

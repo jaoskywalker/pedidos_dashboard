@@ -18,8 +18,8 @@ $dados = mysqli_fetch_array($resultado);
 $id_user = $id;
 $client_name = $_POST['client_name'];
 $client_order = $_POST['client_order'];
-$price = $_POST['price'];
-
+$price = number_format($_POST['price'], 2);
+money
 
 $sql = "INSERT INTO user_order (id_user, client_name, client_order, price) 
         VALUES               ('$id_user','$client_name','$client_order','$price' )";
