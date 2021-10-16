@@ -26,16 +26,20 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
 <html lang="pt">
 
 <head>
+    <!-- META TAGS -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - WebClients</title>
+
+    <!-- LINKS E DEPENDENCIAS  -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous">
-    </script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 </head>
 
 <body class="sb-nav-fixed">
@@ -223,7 +227,6 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                         <th>Cliente</th>
                                         <th>Pedido</th>
                                         <th>Preço</th>
-                                        <th>Data</th>
                                         <th>Opções</th>
                                     </tr>
                                 </thead>
@@ -233,8 +236,7 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                         <th>Name</th>
                                         <th>Order</th>
                                         <th>Price</th>
-                                        <th>Date</th>
-                                        <th>Date</th>
+                                        <th>Button</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -245,8 +247,12 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                         <td>" . $dados['client_name'] . "</td>
                                         <td>" . $dados['client_order'] . "</td>
                                         <td>R$ " . number_format($dados['price'], 2, ',', '.') . "</td>
-                                        <td>N/a</td>
-                                        <td>N/a</td>
+                                        <td class='td-right'>
+                                        <a href='scripts/conclude_order.php?order=" . $dados['id_order'] .  "'><button type='submit' class='btn btn-primary'><i class='bi bi-cart-check-fill'></i> Concluir</button></a>
+                                        <button type='button' class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button>
+                                        <a href='scripts/edit_order.php?order=" . $dados['id_order'] .  "'><button type='button' class='btn btn-primary'><i class='bi bi-cart-x-fill'></i> Excluir</button></a>
+                                        <button type='button' class='btn btn-primary'><i class='bi bi-printer-fill'></i> Imprimir</button>
+                                        </td>
                                     </tr>"
                                     ?>
                                 </tbody>

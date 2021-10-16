@@ -152,7 +152,12 @@ var_dump($id)
                         </div>
                         <div class="form-group">
                             <br>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Valor do Pedido">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Quantia" name="price" placeholder="Valor do Pedido">
+                            </div>
 
                         </div><br>
                         <div class="form-group" style="display:none;">

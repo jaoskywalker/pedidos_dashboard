@@ -1,0 +1,10 @@
+.td-right{
+    text-align: right; 
+    vertical-align:middle !important;
+    width:fit-content;
+    max-width:300px;
+}
+
+.td-right button{
+    margin-bottom: 5px;
+}
