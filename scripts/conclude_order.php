@@ -1,30 +1,19 @@
 <?php
 session_start();
-include_once("connection.php");
+include("connection.php");
 
 
-$order = $_GET['order'];
+$id_user = $_GET['id_user'];
+$id_order = $_GET['id_order'];
+$client_name = $_GET['client_name'];
+$client_order = $_GET['client_order'];
+$price = $_GET['price'];
 
-if (!empty($order)) {
-    $sql = "SELECT * FROM user_order WHERE id_order='$order'";
-    $sql_query = mysqli_query($connect, $sql);
+$sql = "INSERT INTO historic_order (id_user, id_order, client_name, client_order, price) VALUES ('$id_user','$id_order','$client_name','$client_order','$price')";
+$insert_ht = mysqli_query($connect, $sql);
 
-    $result = mysqli_fetch_array($sql_query);
-    $id_user = $result['id_user'];
-    $id_order = $result['id_order'];
-    $client_name = $result['client_name'];
-    $client_order = $result['client_order'];
-    $price = $result['price'];
-}
+$insert = mysqli_insert_id($connect);
 
-
-
-$sql2 = "INSERT INTO historic_order (id_user, id_order, client_name, client_order, price) VALUES ('$id_user,'$id_order','$client_name','$client_order','$price')";
-
-if (!empty($order)) {
-    $sql_query = mysqli_query($connect, $sql2);
-}
-
-
-//mysqli_close();
-//header('location:../index.php');
+if (!$insert = null) :
+    header("Location:delete_order.php?order=$id_order");
+endif;

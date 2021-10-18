@@ -241,19 +241,35 @@ $busca_nome = "SELECT name FROM user WHERE id = '$id'";
                                 </tfoot>
                                 <tbody>
                                     <?php
-                                    while ($dados = mysqli_fetch_array($resultado))
-
+                                    while ($dados = mysqli_fetch_array($resultado)) :
                                         echo "<tr>
                                         <td>" . $dados['client_name'] . "</td>
                                         <td>" . $dados['client_order'] . "</td>
                                         <td>R$ " . number_format($dados['price'], 2, ',', '.') . "</td>
                                         <td class='td-right'>
-                                        <a href='scripts/conclude_order.php?order=" . $dados['id_order'] .  "'><button type='submit' class='btn btn-primary'><i class='bi bi-cart-check-fill'></i> Concluir</button></a>
+                                        ";
+                                        $vars = [
+                                            'id_user' => $dados['id_user'],
+                                            'id_order' => $dados['id_order'],
+                                            'client_name' => $dados['client_name'],
+                                            'client_order' => $dados['client_order'],
+                                            'price' => $dados['price'],
+                                        ];
+
+
+                                        echo "
+                                        <a href='scripts/conclude_order.php?" . http_build_query($vars) .  "'><button type='submit' class='btn btn-primary'><i class='bi bi-cart-check-fill'></i> Concluir</button></a>
                                         <button type='button' class='btn btn-primary'><i class='bi bi-pencil-fill'></i> Editar</button>
-                                        <a href='scripts/edit_order.php?order=" . $dados['id_order'] .  "'><button type='button' class='btn btn-primary'><i class='bi bi-cart-x-fill'></i> Excluir</button></a>
+                                        <a href='scripts/delete_order.php?order=" . $dados['id_order'] .  "'><button type='button' class='btn btn-primary'><i class='bi bi-cart-x-fill'></i> Excluir</button></a>
                                         <button type='button' class='btn btn-primary'><i class='bi bi-printer-fill'></i> Imprimir</button>
                                         </td>
-                                    </tr>"
+                                    </tr>";
+
+
+                                    endwhile;
+
+
+
                                     ?>
                                 </tbody>
                             </table>
