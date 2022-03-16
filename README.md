@@ -1,1 +1,1 @@
-# pedidos_dashboard
+#projeto parado para estudo de soluções.
